@@ -1,0 +1,55 @@
+baseURL = 'https://blishtan.com/'
+languageCode = 'en-us'
+title = 'Blishtan'
+theme = 'hello-friend-ng'
+
+PygmentsCodeFences = true
+PygmentsStyle = "monokai"
+
+enableRobotsTXT = true
+enableEmoji = true
+
+[params]
+  dateform        = "Jan 2, 2006"
+  dateformShort   = "Jan 2"
+  dateformNum     = "2006-01-02"
+  dateformNumTime = "2006-01-02 15:04"
+
+  description = "Blishtan's personal blog"
+  keywords = "blog, personal, tech"
+
+  homeSubtitle = "Welcome to Blishtan"
+
+  disableReadOtherPosts = false
+  enableThemeToggle = true
+  enableSharingButtons = false
+
+  [params.logo]
+    logoMark     = ">"
+    logoText     = "Blishtan"
+    logoHomeLink = "/"
+
+  [params.footer]
+    trademark = 2025
+    rss = true
+    copyright = true
+    author = true
+
+    topText = []
+    bottomText = [
+      "Powered by <a href=\"http://gohugo.io\">Hugo</a>"
+    ]
+
+[taxonomies]
+  tag      = "tags"
+  category = "categories"
+
+[menu]
+  [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "about/"
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "posts/"
