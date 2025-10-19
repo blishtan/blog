@@ -11,8 +11,6 @@ categories:
   - blog
 ---
 
-# Welcome to My Blog!
-
 Hello and welcome to **Blishtan**! I'm excited to launch this space where I'll be sharing my thoughts, projects, and learnings.
 
 ## What to Expect

@@ -4,8 +4,6 @@ draft = false
 title = 'About Me'
 +++
 
-# About Me
-
 Hi, I'm **Blishtan**!
 
 Welcome to my corner of the internet. This is where I share my thoughts, experiences, and learnings about technology, programming, and whatever else catches my interest.
