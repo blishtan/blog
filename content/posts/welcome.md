@@ -3,7 +3,6 @@ title: "Welcome to Blishtan"
 date: 2025-10-18T14:48:35+02:00
 draft: false
 toc: false
-images:
 tags:
   - general
   - announcement
