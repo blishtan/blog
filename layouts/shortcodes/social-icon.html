@@ -1,0 +1,10 @@
+{{- $name := .Get "name" -}}
+{{- $url := .Get "url" -}}
+{{- $text := .Get "text" -}}
+
+<a href="{{ $url }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
+  {{- partial "svg.html" (dict "name" $name) -}}
+  {{- if $text -}}
+    <span>{{ $text }}</span>
+  {{- end -}}
+</a>

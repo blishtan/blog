@@ -46,6 +46,14 @@ enableEmoji = true
   tag      = "tags"
   category = "categories"
 
+[[params.social]]
+  name = "email"
+  url  = "mailto:martin@blishtan.com"
+
+[[params.social]]
+  name = "instagram"
+  url  = "https://instagram.com/leonardo.dev.vinci"
+
 [menu]
   [[menu.main]]
     identifier = "about"
