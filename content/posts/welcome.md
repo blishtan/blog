@@ -10,11 +10,11 @@ categories:
   - blog
 ---
 
-Hello and welcome to **Blishtan**! I'm excited to launch this space where I'll be sharing my thoughts, projects, and learnings.
+Hello and welcome to **Blishtan**! 
 
 ## What to Expect
 
-This blog will cover a variety of topics, primarily focused on:
+This blog will cover a variety of topics, but mainly:
 
 - **Software Development** - Tips, tutorials, and best practices
 - **Technology Trends** - Insights on emerging technologies
@@ -24,14 +24,4 @@ This blog will cover a variety of topics, primarily focused on:
 ## Why I Started This Blog
 
 I believe in learning in public and sharing knowledge with the community. This blog is my way of giving back, organizing my thoughts, and connecting with like-minded individuals.
-
-## Stay Connected
-
-I'll be posting regularly, so make sure to check back often or subscribe to the RSS feed to stay updated.
-
-Thanks for being here from the start. Let's learn and grow together!
-
----
-
-*What topics would you like to see covered? Feel free to reach out with suggestions!*
 
