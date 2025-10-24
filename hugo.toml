@@ -9,6 +9,11 @@ PygmentsStyle = "monokai"
 enableRobotsTXT = true
 enableEmoji = true
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   dateform        = "Jan 2, 2006"
   dateformShort   = "Jan 2"
@@ -18,7 +23,7 @@ enableEmoji = true
   description = "Blishtan's personal blog"
   keywords = "blog, personal, tech"
 
-  homeSubtitle = "Welcome to Blishtan"
+  homeSubtitle = ""
   mainSections = ["posts"]
 
   disableReadOtherPosts = false

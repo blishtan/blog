@@ -10,9 +10,7 @@ Hi, I'm **Blishtan**!
 
 Welcome to my corner of the internet. This is where I share my thoughts, experiences, and learnings about technology, programming, and whatever else catches my interest.
 
-## Get In Touch
-
-Feel free to reach out if you want to discuss technology, collaborate on projects, or just say hello!
+## Contacts
 
 - **Email**: [martin@blishtan.com](mailto:martin@blishtan.com)
 - **Instagram**: [@leonardo.dev.vinci](https://instagram.com/leonardo.dev.vinci)
