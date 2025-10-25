@@ -4,8 +4,9 @@ date: 2025-10-24T21:33:13+02:00
 draft: false
 toc: false
 tags:
-  - general
-  - announcement
+  - LLM
+  - AI
+  - dev_vinci
 categories:
   - blog
 ---

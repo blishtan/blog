@@ -1,6 +1,6 @@
 baseURL = 'https://blishtan.com/'
 languageCode = 'en-us'
-title = 'Blishtan'
+title = 'blishtan'
 theme = 'hello-friend-ng'
 
 PygmentsCodeFences = true

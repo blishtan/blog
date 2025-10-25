@@ -8,7 +8,12 @@ title = 'About Me'
 
 Hi, I'm **Blishtan**!
 
-Welcome to my corner of the internet. This is where I share my thoughts, experiences, and learnings about technology, programming, and whatever else catches my interest.
+...technology, mountain and movement lover.
+
+This blog is a space for my thoughts, experiences and metaphors.
+Through my alter ego, _Leonardo Dev Vinci_, I express ideas through visual metaphors.
+
+Through my own ego, _Blishtan_ ,I write about my experiences and thoughts.
 
 ## Contacts
 
