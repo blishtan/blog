@@ -4,7 +4,7 @@ title = 'blishtan'
 theme = 'hello-friend-ng'
 
 PygmentsCodeFences = true
-PygmentsStyle = "monokai"
+PygmentsStyle = "native"
 
 enableRobotsTXT = true
 enableEmoji = true
@@ -29,6 +29,9 @@ enableEmoji = true
   disableReadOtherPosts = false
   enableThemeToggle = true
   enableSharingButtons = false
+
+  # Custom CSS
+  customCSS = ["/css/custom.css"]
 
   [params.logo]
     logoMark     = ""

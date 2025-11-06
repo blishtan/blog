@@ -1,0 +1,16 @@
+/* Remove all shadows from code blocks and text */
+code[class*="language-"],
+pre[class*="language-"],
+:not(pre) > code[class*="language-"],
+.highlight,
+.highlight pre,
+.highlight code,
+pre code,
+pre,
+code,
+.chroma,
+.token {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border: none !important;
+}
