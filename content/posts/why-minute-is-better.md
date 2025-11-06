@@ -1,14 +1,15 @@
 +++
-title = "Why .minute is Better Than 3600"
-description = "Making time intervals readable and maintainable in Swift"
+title = "Why .hour is Better Than 3600"
+description = "Making TimeIntervals readable in Swift"
 type = ["posts","post"]
 tags = [
     "swift",
     "ios",
-    "code-quality",
-    "best-practices",
+    "code_quality",
+    "swift_tips",
+    "best_practices",
 ]
-date = "2025-11-02"
+date = "2025-11-06"
 categories = [
     "Development",
     "Swift",
@@ -19,9 +20,9 @@ categories = [
 
 Naming variables is said to be the hardest part of software development. Many developers don't care, many don't know how to do it. When I see a magic number in the code, I create a constant. It immediately communicates the purpose or what this number stands for.
 
-`TimeInterval` is a typealias for `Double` and it represents seconds in various functions or constructors. We've all been there where `TimeInterval` is needed for postponing notifications, scheduling checks... you name it.
+In Swift `TimeInterval` is a typealias for `Double` and it represents seconds in various functions or constructors. We've all been there - needing `TimeInterval` for postponing notifications, scheduling checks... you name it.
 
-## When Magic Numbers Work
+## Magic Numbers
 
 It is okay to create an animation that takes 4 seconds:
 
@@ -31,19 +32,17 @@ UIView.animate(withDuration: 4, animations: {
 })
 ```
 
-The number `4` is clear and simple. But what about more complex time intervals?
-
-## The Problem with Magic Numbers
+The number `4` is clear and simple. 
 
 Setting a check after 30 days might look confusing:
 
 ```swift
-Date.addingTimeInterval(2_592_000)
+Date().addingTimeInterval(2_592_000)
 ```
 
 This creates mental overhead and the code is not readable. What does `2_592_000` represent? You'd have to calculate it mentally or add a comment.
 
-## The Solution
+## The Solution - Swift Extension
 
 Almost every package and project I work on contains this extension for `TimeInterval`:
 
@@ -61,7 +60,24 @@ extension TimeInterval {
 Now the code becomes self-documenting:
 
 ```swift
-Date.addingTimeInterval(30 * .day)
+Date().addingTimeInterval(30 * .day)
 ```
+
+For working with past dates, I created this little extension:
+
+```swift
+extension TimeInterval {
+    var ago: Self {
+        -self
+    }
+}
+```
+
+...which can combine with extension before and could lead to nice readable code:
+
+```swift
+  let lastValidDate = Date(timeInterval: .year.ago, since: Date())
+```
+
 
 This is immediately clear, maintainable, and eliminates the need for mental arithmetic. The intent is obvious, and future developers (including yourself) will thank you for it.
