@@ -40,7 +40,7 @@ enableEmoji = true
     logoCursorDisabled = true
 
   [params.footer]
-    trademark = 2025
+    trademark = 2026
     rss = false
     copyright = false
     author = false
@@ -64,6 +64,13 @@ enableEmoji = true
 
 [menu]
   [[menu.main]]
+    identifier = "blog"
+    name       = "Blog"
+    url        = "posts/"
+    weight     = 1
+
+  [[menu.main]]
     identifier = "about"
     name       = "About"
     url        = "about/"
+    weight     = 2
