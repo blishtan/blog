@@ -77,4 +77,137 @@ code,
     color: #e36209 !important;
 }
 
-/* Dark theme keeps the existing Prism Twilight theme from _prism.scss */
+/* ============================================================
+   Dark theme code blocks — Everforest (medium dark)
+   Replaces the old Twilight scheme (yellow keywords / red numbers).
+   ============================================================ */
+[data-theme=dark] code[class*="language-"],
+[data-theme=dark] pre[class*="language-"] {
+    color: #d3c6aa !important; /* Everforest foreground */
+    background: none !important;
+}
+
+[data-theme=dark] pre[class*="language-"],
+[data-theme=dark] :not(pre) > code[class*="language-"] {
+    background: #2b3339 !important; /* Everforest bg */
+}
+
+[data-theme=dark] .token.comment,
+[data-theme=dark] .token.prolog,
+[data-theme=dark] .token.doctype,
+[data-theme=dark] .token.cdata {
+    color: #7a8478 !important;
+    font-style: italic;
+}
+
+[data-theme=dark] .token.punctuation {
+    color: #9da9a0 !important;
+    opacity: 1;
+}
+
+[data-theme=dark] .token.keyword,
+[data-theme=dark] .token.selector,
+[data-theme=dark] .token.symbol,
+[data-theme=dark] .token.tag,
+[data-theme=dark] .token.deleted {
+    color: #e67e80 !important; /* red */
+}
+
+[data-theme=dark] .token.boolean,
+[data-theme=dark] .token.number,
+[data-theme=dark] .token.constant {
+    color: #d699b6 !important; /* purple */
+}
+
+[data-theme=dark] .token.string,
+[data-theme=dark] .token.char,
+[data-theme=dark] .token.attr-value,
+[data-theme=dark] .token.inserted {
+    color: #a7c080 !important; /* green */
+}
+
+[data-theme=dark] .token.function {
+    color: #83c092 !important; /* aqua */
+}
+
+[data-theme=dark] .token.class-name,
+[data-theme=dark] .token.builtin,
+[data-theme=dark] .token.regex,
+[data-theme=dark] .token.important,
+[data-theme=dark] .token.atrule {
+    color: #7fbbb3 !important; /* blue (types) — no yellow */
+}
+
+[data-theme=dark] .token.property,
+[data-theme=dark] .token.attr-name,
+[data-theme=dark] .token.variable {
+    color: #d3c6aa !important; /* neutral foreground */
+}
+
+[data-theme=dark] .token.operator,
+[data-theme=dark] .token.entity,
+[data-theme=dark] .token.url {
+    color: #e69875 !important; /* orange */
+}
+
+/* ============================================================
+   Accent — Everforest green (replaces pink / blockquote blue)
+   ============================================================ */
+[data-theme=dark] blockquote { border-left-color: #a7c080 !important; }
+[data-theme=light] blockquote { border-left-color: #8da101 !important; }
+
+[data-theme=dark] ::selection { background: #a7c080; color: #16210d; }
+[data-theme=dark] ::-moz-selection { background: #a7c080; color: #16210d; }
+[data-theme=light] ::selection { background: #8da101; color: #fff; }
+[data-theme=light] ::-moz-selection { background: #8da101; color: #fff; }
+
+/* Logo cursor accent (in case the blinking cursor is ever enabled) */
+.logo__cursor { background-color: #a7c080 !important; }
+
+/* Links inside post content carry the green accent */
+.post-content a { border-bottom: 1px solid transparent; transition: border-color .15s; }
+.post-content a:hover { border-bottom-color: currentColor; }
+[data-theme=dark] .post-content a { color: #a7c080; }
+[data-theme=light] .post-content a { color: #8da101; }
+
+/* ============================================================
+   Fenced code blocks — Hugo Chroma classes (noClasses=false).
+   This is what actually highlights code. Dark = Everforest (no
+   yellow), Light = GitHub. The old .token rules above are inert
+   (Prism is not what renders fenced code).
+   ============================================================ */
+[data-theme=dark] .chroma { background:#2b3339 !important; color:#d3c6aa !important; }
+[data-theme=light] .chroma { background:#f6f8fa !important; color:#24292e !important; }
+.highlight, .highlight pre { background:none !important; }
+
+/* ---- Dark: Everforest (no yellow) ---- */
+[data-theme=dark] .chroma .c,[data-theme=dark] .chroma .ch,[data-theme=dark] .chroma .cm,[data-theme=dark] .chroma .cp,[data-theme=dark] .chroma .cpf,[data-theme=dark] .chroma .c1,[data-theme=dark] .chroma .cs{color:#7a8478;font-style:italic}
+[data-theme=dark] .chroma .k,[data-theme=dark] .chroma .kc,[data-theme=dark] .chroma .kd,[data-theme=dark] .chroma .kn,[data-theme=dark] .chroma .kp,[data-theme=dark] .chroma .kr{color:#e67e80}
+[data-theme=dark] .chroma .kt,[data-theme=dark] .chroma .nc,[data-theme=dark] .chroma .nn,[data-theme=dark] .chroma .nb,[data-theme=dark] .chroma .bp,[data-theme=dark] .chroma .na{color:#7fbbb3}
+[data-theme=dark] .chroma .nf,[data-theme=dark] .chroma .fm{color:#83c092}
+[data-theme=dark] .chroma .no{color:#d699b6}
+[data-theme=dark] .chroma .nt{color:#e67e80}
+[data-theme=dark] .chroma .nd{color:#83c092}
+[data-theme=dark] .chroma .s,[data-theme=dark] .chroma .sa,[data-theme=dark] .chroma .sb,[data-theme=dark] .chroma .sc,[data-theme=dark] .chroma .dl,[data-theme=dark] .chroma .sd,[data-theme=dark] .chroma .s2,[data-theme=dark] .chroma .se,[data-theme=dark] .chroma .sh,[data-theme=dark] .chroma .si,[data-theme=dark] .chroma .sx,[data-theme=dark] .chroma .s1,[data-theme=dark] .chroma .ss{color:#a7c080}
+[data-theme=dark] .chroma .sr{color:#83c092}
+[data-theme=dark] .chroma .m,[data-theme=dark] .chroma .mb,[data-theme=dark] .chroma .mf,[data-theme=dark] .chroma .mh,[data-theme=dark] .chroma .mi,[data-theme=dark] .chroma .il,[data-theme=dark] .chroma .mo{color:#d699b6}
+[data-theme=dark] .chroma .o,[data-theme=dark] .chroma .ow{color:#e69875}
+[data-theme=dark] .chroma .p{color:#9da9a0}
+[data-theme=dark] .chroma .nv,[data-theme=dark] .chroma .vc,[data-theme=dark] .chroma .vg,[data-theme=dark] .chroma .vi,[data-theme=dark] .chroma .vm,[data-theme=dark] .chroma .py,[data-theme=dark] .chroma .n,[data-theme=dark] .chroma .nx,[data-theme=dark] .chroma .nl{color:#d3c6aa}
+[data-theme=dark] .chroma .gi{color:#a7c080}
+[data-theme=dark] .chroma .gd{color:#e67e80}
+
+/* ---- Light: GitHub ---- */
+[data-theme=light] .chroma .c,[data-theme=light] .chroma .ch,[data-theme=light] .chroma .cm,[data-theme=light] .chroma .cp,[data-theme=light] .chroma .cpf,[data-theme=light] .chroma .c1,[data-theme=light] .chroma .cs{color:#6a737d;font-style:italic}
+[data-theme=light] .chroma .k,[data-theme=light] .chroma .kc,[data-theme=light] .chroma .kd,[data-theme=light] .chroma .kn,[data-theme=light] .chroma .kp,[data-theme=light] .chroma .kr,[data-theme=light] .chroma .kt{color:#cf222e}
+[data-theme=light] .chroma .nf,[data-theme=light] .chroma .fm{color:#8250df}
+[data-theme=light] .chroma .nc,[data-theme=light] .chroma .nn,[data-theme=light] .chroma .nb,[data-theme=light] .chroma .bp,[data-theme=light] .chroma .no{color:#0550ae}
+[data-theme=light] .chroma .nt,[data-theme=light] .chroma .na{color:#116329}
+[data-theme=light] .chroma .nd{color:#8250df}
+[data-theme=light] .chroma .s,[data-theme=light] .chroma .sa,[data-theme=light] .chroma .sb,[data-theme=light] .chroma .sc,[data-theme=light] .chroma .dl,[data-theme=light] .chroma .sd,[data-theme=light] .chroma .s2,[data-theme=light] .chroma .se,[data-theme=light] .chroma .sh,[data-theme=light] .chroma .si,[data-theme=light] .chroma .sx,[data-theme=light] .chroma .s1,[data-theme=light] .chroma .ss,[data-theme=light] .chroma .sr{color:#0a3069}
+[data-theme=light] .chroma .m,[data-theme=light] .chroma .mb,[data-theme=light] .chroma .mf,[data-theme=light] .chroma .mh,[data-theme=light] .chroma .mi,[data-theme=light] .chroma .il,[data-theme=light] .chroma .mo{color:#0550ae}
+[data-theme=light] .chroma .o,[data-theme=light] .chroma .ow{color:#cf222e}
+[data-theme=light] .chroma .p{color:#24292e}
+[data-theme=light] .chroma .nv,[data-theme=light] .chroma .vc,[data-theme=light] .chroma .vg,[data-theme=light] .chroma .vi,[data-theme=light] .chroma .vm,[data-theme=light] .chroma .py,[data-theme=light] .chroma .n,[data-theme=light] .chroma .nx,[data-theme=light] .chroma .nl{color:#24292e}
+[data-theme=light] .chroma .gi{color:#116329}
+[data-theme=light] .chroma .gd{color:#cf222e}

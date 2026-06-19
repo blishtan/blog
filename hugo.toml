@@ -3,9 +3,6 @@ languageCode = 'en-us'
 title = 'blishtan'
 theme = 'hello-friend-ng'
 
-PygmentsCodeFences = true
-PygmentsStyle = "native"
-
 enableRobotsTXT = true
 enableEmoji = true
 
@@ -13,6 +10,11 @@ enableEmoji = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = false
+    tabWidth = 4
 
 [params]
   dateform        = "Jan 2, 2006"
