@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>What's New at WWDC 2026 — blishtan</title>
 <style>
-  *{box-sizing:border-box}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   :root{
     --bg:#0b0d0e;--bg-soft:#121517;--card:#181c1e;--card-2:#22282b;
     --ink:#d3c6aa;--ink-dim:#9da9a0;--ink-faint:#7a8478;--strong:#e8e0cd;
@@ -41,10 +41,6 @@
 
   /* Hero */
   .hero{position:relative;max-width:var(--maxw);margin:0 auto;padding:84px 28px 50px}
-  .kicker{display:inline-flex;align-items:center;gap:9px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
-    font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#b8c9a6;padding:6px 14px;border-radius:999px;
-    background:rgba(211,198,170,.05);border:1px solid var(--line-2);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-  .kicker .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px 1px var(--accent)}
   .hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1.02;letter-spacing:-.03em;font-weight:700;margin:22px 0 18px;color:var(--strong);max-width:16ch}
   .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .lead{font-size:1.15rem;line-height:1.55;color:var(--ink-dim);max-width:62ch;margin:0 0 34px}
@@ -72,12 +68,11 @@
   .nav::-webkit-scrollbar-thumb{background:rgba(211,198,170,.13);border-radius:8px;border:2px solid transparent;background-clip:padding-box}
   .nav-item{display:flex;align-items:center;gap:12px;padding:8px 11px;border-radius:10px;color:var(--ink-dim);transition:.15s;position:relative}
   .nav-item:hover{background:rgba(211,198,170,.05);color:var(--strong)}
-  .nav-ico{flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:var(--tc);box-shadow:0 0 9px -1px var(--tc)}
+  .nav-ico{flex:0 0 auto;width:8px;height:8px;border-radius:50%;background:transparent}
   .nav-name{flex:1;font-size:.88rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .nav-count{flex:0 0 auto;font-size:.72rem;color:var(--ink-faint);font-variant-numeric:tabular-nums}
-  .nav-item.active{background:color-mix(in srgb,var(--tc) 15%,transparent);color:var(--strong)}
-  .nav-item.active::before{content:"";position:absolute;left:-4px;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:3px;background:var(--tc)}
-  .nav-item.active .nav-count{color:var(--tc)}
+  .nav-item.active{background:rgba(255,255,255,.07);color:var(--strong)}
+  .nav-item.active .nav-ico{background:var(--tc)}
   .nav-item.dim{opacity:.3;pointer-events:none}
 
   /* Content */
@@ -103,9 +98,9 @@
   .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
   .card{position:relative;display:flex;flex-direction:column;min-width:0;background:var(--card);border:1px solid var(--line);border-radius:16px;
     padding:18px 18px 16px;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;overflow:hidden}
-  .card::after{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--tc),transparent 72%);opacity:0;transition:opacity .18s}
-  .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--tc) 50%,var(--line));box-shadow:0 16px 40px -14px rgba(0,0,0,.6)}
-  .card:hover::after{opacity:.9}
+  @media (hover:hover){
+    .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--tc) 50%,var(--line));box-shadow:0 16px 40px -14px rgba(0,0,0,.6)}
+  }
   .card-top{margin-bottom:11px}
   .tag{font-size:.6rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;padding:4px 9px;border-radius:999px;display:inline-block}
   .tag-major{color:#16210d;background:var(--grad)}
@@ -139,7 +134,6 @@
     .nav{flex-direction:row;overflow-x:auto;overflow-y:hidden;gap:8px;padding:4px 0;margin:0}
     .nav-item{flex:0 0 auto;background:var(--card);border:1px solid var(--line)}
     .nav-name{max-width:150px}
-    .nav-item.active::before{display:none}
     .filters{top:0}
   }
   @media (max-width:560px){
@@ -160,7 +154,6 @@
 
 <main>
   <section class="hero">
-    <span class="kicker"><span class="dot"></span>Apple WWDC 2026 &middot; Developer</span>
     <h1>What&rsquo;s new at <span class="grad">WWDC 2026</span></h1>
     <p class="lead">Every new framework, API, capability and design change announced across the WWDC 2026 sessions &mdash; extracted from the official session transcripts, de-duplicated, and grouped by topic.</p>
     <div class="stats">
