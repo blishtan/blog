@@ -68,6 +68,16 @@
   .nav-item.active .nav-ico{background:var(--tc)}
   .nav-item.dim{opacity:.3;pointer-events:none}
 
+  /* Mobile topic-dropdown trigger (hidden on desktop) */
+  .nav-trigger{display:none;align-items:center;gap:10px;width:100%;cursor:pointer;font:inherit;text-align:left;
+    background:var(--card);border:1px solid var(--line-2);border-radius:12px;padding:9px 14px;transition:.15s}
+  .nav-trigger:hover{border-color:var(--accent)}
+  .nav-trigger-eyebrow{flex:0 0 auto;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--ink-faint)}
+  .nav-trigger-current{flex:1 1 auto;min-width:0;font-size:.92rem;font-weight:600;color:var(--strong);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-trigger-caret{flex:0 0 auto;color:var(--ink-faint);transition:transform .2s}
+  .sidebar.nav-open .nav-trigger{border-color:var(--accent)}
+  .sidebar.nav-open .nav-trigger-caret{transform:rotate(180deg)}
+
   /* Content */
   .content{min-width:0}
   .filters{position:sticky;top:56px;z-index:30;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0 12px;margin-bottom:2px;
@@ -123,11 +133,24 @@
 
   @media (max-width:980px){
     .shell{grid-template-columns:minmax(0,1fr);gap:18px}
-    .sidebar{position:static;max-height:none;gap:12px}
-    .nav{flex-direction:row;overflow-x:auto;overflow-y:hidden;gap:8px;padding:4px 0;margin:0}
-    .nav-item{flex:0 0 auto;background:var(--card);border:1px solid var(--line)}
-    .nav-name{max-width:150px}
-    .filters{top:0}
+
+    /* Sidebar collapses into a sticky topic bar pinned under the header */
+    .sidebar{position:sticky;top:48px;z-index:45;max-height:none;gap:9px;
+      padding:10px 0 11px;background:var(--bg);border-bottom:1px solid var(--line)}
+    .nav-trigger{display:flex}
+
+    /* The 17 topics become an overlay dropdown anchored to the bar */
+    .nav{position:absolute;left:0;right:0;top:100%;z-index:60;margin:7px 0 0;
+      flex-direction:column;gap:2px;max-height:62vh;overflow-y:auto;overflow-x:hidden;
+      padding:7px;border-radius:14px;background:var(--bg);border:1px solid var(--line-2);
+      box-shadow:0 22px 55px -14px rgba(0,0,0,.65);display:none}
+    .sidebar.nav-open .nav{display:flex}
+    .nav-item{padding:11px 12px;background:transparent;border:0;border-radius:10px}
+    .nav-name{max-width:none;font-size:.92rem}
+
+    /* Significance chips scroll with the page instead of fighting the sticky bar */
+    .filters{position:static}
+    .topic{scroll-margin-top:168px}
   }
   @media (max-width:560px){
     .hero{padding:52px 20px 34px}
@@ -156,7 +179,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.35-4.35"></path></svg>
         <input id="search" type="search" placeholder="Filter announcements&hellip;" autocomplete="off">
       </div>
-      <nav class="nav" aria-label="Topics">
+      <button class="nav-trigger" id="navTrigger" type="button" aria-expanded="false" aria-controls="topicNav">
+        <span class="nav-trigger-eyebrow">Topics</span>
+        <span class="nav-trigger-current" id="navTriggerCurrent">Apple Intelligence</span>
+        <svg class="nav-trigger-caret" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>
+      </button>
+      <nav class="nav" id="topicNav" aria-label="Topics">
         <a class="nav-item active" href="#ai" data-topic="ai" style="--tc:#a7c080"><span class="nav-ico"></span><span class="nav-name">Apple Intelligence</span><span class="nav-count">42</span></a>
         <a class="nav-item" href="#siri" data-topic="siri" style="--tc:#83c092"><span class="nav-ico"></span><span class="nav-name">Siri &amp; App Intents</span><span class="nav-count">33</span></a>
         <a class="nav-item" href="#swiftui" data-topic="swiftui" style="--tc:#7fbbb3"><span class="nav-ico"></span><span class="nav-name">SwiftUI &amp; UI</span><span class="nav-count">41</span></a>
@@ -2506,6 +2534,38 @@
       if(n) n.textContent = (s === 'all') ? cards.length : cards.filter(function(c){ return c.getAttribute('data-sig') === s; }).length;
     });
 
+    // Mobile: collapsible topic dropdown
+    var sidebar    = document.querySelector('.sidebar');
+    var navTrigger = document.getElementById('navTrigger');
+    var navCurrent = document.getElementById('navTriggerCurrent');
+
+    function setNavOpen(open){
+      if(!sidebar) return;
+      sidebar.classList.toggle('nav-open', open);
+      if(navTrigger) navTrigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function setCurrentTopic(id){
+      var n = navById[id];
+      if(!n || !navCurrent) return;
+      var name = n.querySelector('.nav-name');
+      if(name) navCurrent.textContent = name.textContent;
+    }
+    if(navTrigger){
+      navTrigger.addEventListener('click', function(e){
+        e.stopPropagation();
+        setNavOpen(!sidebar.classList.contains('nav-open'));
+      });
+      navItems.forEach(function(n){
+        n.addEventListener('click', function(){ setNavOpen(false); });
+      });
+      document.addEventListener('click', function(e){
+        if(sidebar.classList.contains('nav-open') && !sidebar.contains(e.target)) setNavOpen(false);
+      });
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape') setNavOpen(false);
+      });
+    }
+
     // Scroll-spy: highlight the topic currently in view
     if('IntersectionObserver' in window){
       var spy = new IntersectionObserver(function(entries){
@@ -2513,6 +2573,7 @@
           if(e.isIntersecting){
             var id = e.target.id;
             navItems.forEach(function(n){ n.classList.toggle('active', n.getAttribute('data-topic') === id); });
+            setCurrentTopic(id);
           }
         });
       }, { rootMargin: '-25% 0px -65% 0px', threshold: 0 });
