@@ -44,13 +44,6 @@
   .hero h1{font-size:clamp(2.6rem,6.5vw,4.6rem);line-height:1.02;letter-spacing:-.03em;font-weight:700;margin:22px 0 18px;color:var(--strong);max-width:16ch}
   .hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
   .lead{font-size:1.15rem;line-height:1.55;color:var(--ink-dim);max-width:62ch;margin:0 0 34px}
-  .stats{display:flex;flex-wrap:wrap;gap:14px}
-  .stat{padding:16px 22px;border-radius:16px;min-width:120px;
-    background:linear-gradient(180deg,rgba(211,198,170,.06),rgba(211,198,170,.02));border:1px solid var(--line);
-    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
-  .stat b{display:block;font-size:2rem;font-weight:700;letter-spacing:-.02em;line-height:1;
-    background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .stat span{display:block;margin-top:6px;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-faint)}
 
   /* Shell: sidebar + content */
   .shell{max-width:var(--maxw);margin:0 auto;padding:0 28px 40px;display:grid;grid-template-columns:var(--sidew) minmax(0,1fr);gap:40px;align-items:start}
@@ -141,7 +134,6 @@
     .header__inner,.shell,.footer{padding-left:20px;padding-right:20px}
     .cards{grid-template-columns:minmax(0,1fr)}
     .src{max-width:100%}
-    .stat{flex:1;min-width:calc(50% - 7px)}
   }
 </style>
 </head>
@@ -156,12 +148,6 @@
   <section class="hero">
     <h1>What&rsquo;s new at <span class="grad">WWDC 2026</span></h1>
     <p class="lead">Every new framework, API, capability and design change announced across the WWDC 2026 sessions &mdash; extracted from the official session transcripts, de-duplicated, and grouped by topic.</p>
-    <div class="stats">
-      <div class="stat"><b>363</b><span>announcements</span></div>
-      <div class="stat"><b>92</b><span>major</span></div>
-      <div class="stat"><b>17</b><span>topics</span></div>
-      <div class="stat"><b>109</b><span>sessions</span></div>
-    </div>
   </section>
 
   <div class="shell">
