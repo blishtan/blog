@@ -80,14 +80,6 @@
 
   /* Content */
   .content{min-width:0}
-  .filters{position:sticky;top:56px;z-index:30;display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:12px 0 12px;margin-bottom:2px;
-    background:linear-gradient(180deg,var(--bg) 76%,transparent)}
-  .chip{font:inherit;font-size:.8rem;font-weight:600;line-height:1;color:var(--ink-dim);padding:8px 14px;border-radius:999px;cursor:pointer;
-    background:var(--card);border:1px solid var(--line);transition:.15s;display:inline-flex;gap:7px;align-items:center}
-  .chip:hover{color:var(--strong);border-color:var(--line-2)}
-  .chip .n{font-size:.72rem;color:var(--ink-faint);font-variant-numeric:tabular-nums}
-  .chip.active{color:var(--strong);background:rgba(167,192,128,.15);border-color:rgba(167,192,128,.55)}
-  .chip.active .n{color:var(--accent)}
 
   /* Topic sections */
   .topic{--tc:var(--tcd);margin:46px 0 0;scroll-margin-top:130px}
@@ -148,8 +140,6 @@
     .nav-item{padding:11px 12px;background:transparent;border:0;border-radius:10px}
     .nav-name{max-width:none;font-size:.92rem}
 
-    /* Significance chips scroll with the page instead of fighting the sticky bar */
-    .filters{position:static}
     .topic{scroll-margin-top:168px}
   }
   @media (max-width:560px){
@@ -206,13 +196,6 @@
     </aside>
 
     <div class="content">
-      <div class="filters" role="tablist" aria-label="Significance">
-        <button class="chip active" data-sig="all" type="button">All <span class="n"></span></button>
-        <button class="chip" data-sig="major" type="button">Major <span class="n"></span></button>
-        <button class="chip" data-sig="notable" type="button">Notable <span class="n"></span></button>
-        <button class="chip" data-sig="minor" type="button">Minor <span class="n"></span></button>
-      </div>
-
   <div class="body-wrap">
       <section class="topic" id="ai" data-topic="Apple Intelligence &amp; On-Device AI" style="--tcd:#a7c080;--tcl:#a7c080">
         <h2 class="topic-h"><span class="t-icon"></span><span class="t-name">Apple Intelligence &amp; On-Device AI</span><span class="count">42 new</span></h2>
@@ -2492,13 +2475,10 @@
   (function(){
     var search   = document.getElementById('search');
     var sections = [].slice.call(document.querySelectorAll('.topic'));
-    var cards    = [].slice.call(document.querySelectorAll('.card'));
     var navItems = [].slice.call(document.querySelectorAll('.nav-item'));
-    var chips    = [].slice.call(document.querySelectorAll('.chip'));
     var empty    = document.getElementById('empty');
     var navById  = {};
     navItems.forEach(function(n){ navById[n.getAttribute('data-topic')] = n; });
-    var sig = 'all';
 
     function apply(){
       var term = (search.value || '').trim().toLowerCase();
@@ -2506,9 +2486,7 @@
       sections.forEach(function(s){
         var shown = 0;
         s.querySelectorAll('.card').forEach(function(c){
-          var okText = !term || c.getAttribute('data-text').indexOf(term) !== -1;
-          var okSig  = sig === 'all' || c.getAttribute('data-sig') === sig;
-          var show = okText && okSig;
+          var show = !term || c.getAttribute('data-text').indexOf(term) !== -1;
           c.classList.toggle('hide', !show);
           if(show) shown++;
         });
@@ -2521,18 +2499,6 @@
     }
 
     search.addEventListener('input', apply);
-
-    chips.forEach(function(ch){
-      ch.addEventListener('click', function(){
-        chips.forEach(function(x){ x.classList.remove('active'); });
-        ch.classList.add('active');
-        sig = ch.getAttribute('data-sig');
-        apply();
-      });
-      var s = ch.getAttribute('data-sig');
-      var n = ch.querySelector('.n');
-      if(n) n.textContent = (s === 'all') ? cards.length : cards.filter(function(c){ return c.getAttribute('data-sig') === s; }).length;
-    });
 
     // Mobile: collapsible topic dropdown
     var sidebar    = document.querySelector('.sidebar');
