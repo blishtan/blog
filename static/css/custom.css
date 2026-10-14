@@ -245,3 +245,26 @@ code,
 .tlbr-item__body p + p {
     margin-top: .6em;
 }
+.tlbr-foreword {
+    margin-bottom: 1.4em;
+    padding-bottom: 1.4em;
+    border-bottom: 1px solid rgba(127, 127, 127, .25);
+    border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+.tlbr-foreword__label {
+    margin: 0 0 0.4em;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    opacity: 0.65;
+}
+.tlbr-foreword__body {
+    line-height: 1.65;
+}
+.tlbr-foreword__body p {
+    margin: 0;
+}
+.tlbr-foreword__body p + p {
+    margin-top: .6em;
+}
