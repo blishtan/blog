@@ -22,3 +22,7 @@ npm-debug.log
 # Temporary files
 *.tmp
 *.bak
+
+# TL;BR newsletter tool — separate private repo living in tools/tlbr
+tools/tlbr/
+.claude/skills/tlbr-*

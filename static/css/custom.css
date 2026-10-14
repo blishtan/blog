@@ -211,3 +211,37 @@ code,
 [data-theme=light] .chroma .nv,[data-theme=light] .chroma .vc,[data-theme=light] .chroma .vg,[data-theme=light] .chroma .vi,[data-theme=light] .chroma .vm,[data-theme=light] .chroma .py,[data-theme=light] .chroma .n,[data-theme=light] .chroma .nx,[data-theme=light] .chroma .nl{color:#24292e}
 [data-theme=light] .chroma .gi{color:#116329}
 [data-theme=light] .chroma .gd{color:#cf222e}
+
+/* ============================================================
+   TL;BR newsletter items
+   ============================================================ */
+.tlbr-item {
+    padding: 1.4em 0;
+    border-top: 1px solid rgba(127, 127, 127, .25);
+    border-top: 1px solid color-mix(in srgb, currentColor 18%, transparent);
+}
+.tlbr-item__title {
+    margin: 0 0 0.25em;
+    font-size: 1.15em;
+    line-height: 1.35;
+}
+.tlbr-item__title a {
+    text-decoration: none;
+}
+.tlbr-item__title a:hover {
+    text-decoration: underline;
+}
+.tlbr-item__meta {
+    margin: 0 0 0.6em;
+    font-size: 0.85em;
+    opacity: 0.65;
+}
+.tlbr-item__body {
+    line-height: 1.65;
+}
+.tlbr-item__body p {
+    margin: 0;
+}
+.tlbr-item__body p + p {
+    margin-top: .6em;
+}

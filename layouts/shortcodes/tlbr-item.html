@@ -1,0 +1,6 @@
+{{- $blog := .Get "blog" -}}
+<article class="tlbr-item">
+  <h3 class="tlbr-item__title"><a href="{{ .Get "url" }}">{{ .Get "title" | $.Page.RenderString }}</a></h3>
+  <p class="tlbr-item__meta">{{ $blog }}{{ with .Get "author" }}{{ if ne . $blog }} · {{ . }}{{ end }}{{ end }}</p>
+  <div class="tlbr-item__body">{{ .Inner | markdownify }}</div>
+</article>
