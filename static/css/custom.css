@@ -165,8 +165,8 @@ code,
 .logo__cursor { background-color: #a7c080 !important; }
 
 /* Links inside post content carry the green accent */
-.post-content a { border-bottom: 1px solid transparent; transition: border-color .15s; }
-.post-content a:hover { border-bottom-color: currentColor; }
+/* One line only: the border is the underline (the default text underline would double it) */
+.post-content a { text-decoration: none; border-bottom: 1px solid currentColor; }
 [data-theme=dark] .post-content a { color: #a7c080; }
 [data-theme=light] .post-content a { color: #8da101; }
 
@@ -226,10 +226,11 @@ code,
     line-height: 1.35;
 }
 .tlbr-item__title a {
-    text-decoration: none;
+    border-bottom-color: transparent;
+    transition: border-color .15s;
 }
 .tlbr-item__title a:hover {
-    text-decoration: underline;
+    border-bottom-color: currentColor;
 }
 .tlbr-item__meta {
     margin: 0 0 0.6em;
