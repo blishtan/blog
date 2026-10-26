@@ -72,7 +72,13 @@ enableEmoji = true
     weight     = 1
 
   [[menu.main]]
+    identifier = "tlbr"
+    name       = "TL;BR"
+    url        = "tlbr/"
+    weight     = 2
+
+  [[menu.main]]
     identifier = "about"
     name       = "About"
     url        = "about/"
-    weight     = 2
+    weight     = 3
