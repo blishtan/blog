@@ -259,6 +259,11 @@ code,
     text-transform: uppercase;
     opacity: 0.65;
 }
+/* No intro: the first item's rule would sit right under the foreword's — keep only one */
+.tlbr-foreword + .tlbr-item {
+    border-top: none;
+    padding-top: 0;
+}
 .tlbr-foreword__body {
     line-height: 1.65;
 }
